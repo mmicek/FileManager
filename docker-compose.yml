@@ -1,0 +1,36 @@
+services:
+
+  file-manager-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DJANGO_SECRET_KEY=f60c1318-e054-49cf-9c2e-85b7750d058e
+      - DEBUG=True
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=file-manager-db
+      - DB_USER=postgresql
+      - DB_PASSWORD=postgresql
+      - DB_HOST=file-manager-database
+      - DB_PORT=5432
+    volumes:
+      - .:/app/
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  file-manager-database:
+    image: postgres:17
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: file-manager-db
+      POSTGRES_USER: postgresql
+      POSTGRES_PASSWORD: postgresql
+    command: postgres -c jit=off
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
