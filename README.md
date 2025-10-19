@@ -1,6 +1,6 @@
 # File Manager Backend
 
-A Django-based file management backend with image handling, REST API endpoints, and PostgreSQL database support.
+A Django-based file management backend with image handling, REST API endpoints, PostgreSQL database support and pytest. 
 
 ## Project setup
 
@@ -12,3 +12,7 @@ For local development without Docker:
 2. python manage.py migrate
 3. python manage.py runserver 
 4. python manage.py createsuperuser
+
+### Tests
+
+1. Run pytest . inside file_manager package.
