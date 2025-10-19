@@ -13,6 +13,8 @@ For local development without Docker:
 4. python manage.py runserver 
 5. python manage.py createsuperuser
 
+Check local http://localhost:8000/ and http://localhost:8000/admin/
+
 ### Tests
 
 1. Run pytest . inside file_manager package.
