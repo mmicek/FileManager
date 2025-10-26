@@ -13,7 +13,7 @@ class ImageViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Retrie
     pagination_class = CustomPageNumberPagination
 
     filter_backends = [filters.SearchFilter]
-    search_fields = ["title"]
+    search_fields = ["title"]  # Set search parameter name e.g ?title=...
 
     def perform_create(self, serializer) -> Response:
         """
